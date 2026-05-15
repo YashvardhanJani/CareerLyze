@@ -97,8 +97,10 @@ export async function getCoverLetter(id) {
 
   return await db.coverLetter.findUnique({
     where: {
-      id,
-      userId: user.id,
+      id_userId: {
+        id,
+        userId: user.id,
+      },
     },
   });
 }
@@ -115,8 +117,10 @@ export async function deleteCoverLetter(id) {
 
   return await db.coverLetter.delete({
     where: {
-      id,
-      userId: user.id,
+      id_userId: {
+        id,
+        userId: user.id,
+      },
     },
   });
 }
