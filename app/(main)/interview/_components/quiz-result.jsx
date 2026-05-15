@@ -15,7 +15,7 @@ export default function QuizResult({
   return (
     <div className="mx-auto">
       <h1 className="flex items-center gap-2 text-3xl gradient-title">
-        <Trophy className="h-6 w-6 text-yellow-500" />
+        <Trophy className="h-6 w-6 text-secondary" />
         Quiz Results
       </h1>
 
@@ -42,9 +42,9 @@ export default function QuizResult({
               <div className="flex items-start justify-between gap-2">
                 <p className="font-medium">{q.question}</p>
                 {q.isCorrect ? (
-                  <CheckCircle2 className="h-5 w-5 text-green-500 flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                 ) : (
-                  <XCircle className="h-5 w-5 text-red-500 flex-shrink-0" />
+                  <XCircle className="h-5 w-5 text-destructive flex-shrink-0" />
                 )}
               </div>
               <div className="text-sm text-muted-foreground">

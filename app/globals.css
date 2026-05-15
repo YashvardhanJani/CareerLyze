@@ -9,56 +9,57 @@ body {
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --primary: 262 80% 65%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 215 31.8% 90%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 215 31.8% 94%;
-    --muted-foreground: 215 20.2% 40%;
-    --accent: 262 80% 65%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --foreground: 0 0% 4%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 4%;
+    --popover: 0 0% 96%;
+    --popover-foreground: 0 0% 4%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 83% 66%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 215 14% 34%;
+    --accent: 262 83% 66%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 215 31.8% 85%;
-    --input: 215 31.8% 85%;
-    --ring: 262 80% 65%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.75rem;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 262 83% 66%;
+    --chart-3: 215 14% 34%;
+    --chart-4: 0 0% 4%;
+    --chart-5: 0 0% 90%;
+    --radius: 0.5rem;
   }
+
   .dark {
-    --background: 240 17% 10%;
-    --foreground: 210 40% 98%;
-    --card: 232 22% 15%;
-    --card-foreground: 210 40% 98%;
-    --popover: 232 22% 15%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 262 80% 70%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 231 20% 20%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 231 20% 20%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 262 80% 70%;
-    --accent-foreground: 0 0% 10%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 231 20% 24%;
-    --input: 231 20% 24%;
-    --ring: 262 80% 70%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 83% 66%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 262 83% 66%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 262 83% 66%;
+    --chart-3: 240 5% 65%;
+    --chart-4: 0 0% 100%;
+    --chart-5: 0 0% 15%;
   }
 }
 
@@ -66,6 +67,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -73,8 +75,9 @@ body {
 
 @layer utilities {
   .gradient {
-    @apply bg-gradient-to-r from-purple-400 via-violet-500 to-indigo-600;
+    @apply bg-gradient-to-r from-primary via-accent to-secondary;
   }
+
   .gradient-title {
     @apply gradient font-extrabold tracking-tighter text-transparent bg-clip-text pb-2 pr-2;
   }
@@ -100,11 +103,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-      to right,
+  background: linear-gradient(to right,
       rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px
-    ),
+      transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
@@ -125,6 +126,7 @@ body {
   .text-header {
     color: hsl(var(--foreground) / 0.87);
   }
+
   .text-secondary {
     color: hsl(var(--foreground) / 0.60);
   }
@@ -136,12 +138,21 @@ body {
 
   /* Responsive padding utilities */
   @media (max-width: 640px) {
-    .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
-    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+    .px-2 {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
   }
 
   /* Ensure resume preview container doesn't overflow on ultra-small screens */
   @media (max-width: 360px) {
-    body { font-size: 14px; }
+    body {
+      font-size: 14px;
+    }
   }
 }

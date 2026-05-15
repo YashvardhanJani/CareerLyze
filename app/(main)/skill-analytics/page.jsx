@@ -42,10 +42,10 @@ export default function SkillAnalyticsPage() {
       
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
-          <h1 className="text-4xl font-serif font-bold text-primary-foreground mb-2">Skill Analytics</h1>
+          <h1 className="text-4xl font-serif font-bold text-foreground mb-2">Skill Analytics</h1>
           <p className="text-muted-foreground text-sm">Analyze your competencies against market demand for Senior Product roles.</p>
         </div>
-        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+        <Button className="bg-primary hover:bg-primary/90 text-foreground shadow-[0_0_15px_rgba(168,85,247,0.3)]">
           <Zap className="w-4 h-4 mr-2" /> Recalculate Score
         </Button>
       </div>
@@ -64,7 +64,7 @@ export default function SkillAnalyticsPage() {
                 <PolarGrid stroke="#334155" />
                 <PolarAngleAxis dataKey="subject" tick={{ fill: '#94a3b8', fontSize: 10 }} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                <Radar name="Skills" dataKey="A" stroke="#a855f7" fill="#a855f7" fillOpacity={0.4} />
+                <Radar name="Skills" dataKey="A" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.4} />
               </RadarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -86,8 +86,8 @@ export default function SkillAnalyticsPage() {
                   cursor={{ fill: 'rgba(255, 255, 255, 0.05)' }}
                   contentStyle={{ backgroundColor: '#1e1e2e', borderColor: '#334155', borderRadius: '8px' }}
                 />
-                <Bar dataKey="current" name="Your Level" fill="#3b82f6" radius={[0, 4, 4, 0]} barSize={12} />
-                <Bar dataKey="required" name="Required Level" fill="#6366f1" radius={[0, 4, 4, 0]} barSize={12} />
+                <Bar dataKey="current" name="Your Level" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} barSize={12} />
+                <Bar dataKey="required" name="Required Level" fill="hsl(var(--secondary))" radius={[0, 4, 4, 0]} barSize={12} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -97,17 +97,17 @@ export default function SkillAnalyticsPage() {
 
       {/* Recommended Learning */}
       <div>
-        <h2 className="text-xl font-serif font-bold text-primary-foreground mb-4">Recommended Learning Paths</h2>
+        <h2 className="text-xl font-serif font-bold text-foreground mb-4">Recommended Learning Paths</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className="bg-card/50 border-border/50 hover:border-primary/30 transition-all cursor-pointer">
             <CardContent className="p-5">
-              <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center mb-4">
-                <Brain className="w-5 h-5 text-blue-500" />
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                <Brain className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="font-bold text-primary-foreground mb-2">Grokking the System Design Interview</h3>
+              <h3 className="font-bold text-foreground mb-2">Grokking the System Design Interview</h3>
               <p className="text-xs text-muted-foreground mb-4">Master scalable architectures for technical PM rounds.</p>
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs border-blue-500/30 text-blue-400">High Priority</Badge>
+                <Badge variant="outline" className="text-xs border-primary/30 text-primary">High Priority</Badge>
                 <span className="text-xs text-muted-foreground">4 weeks</span>
               </div>
             </CardContent>
@@ -115,13 +115,13 @@ export default function SkillAnalyticsPage() {
           
           <Card className="bg-card/50 border-border/50 hover:border-primary/30 transition-all cursor-pointer">
             <CardContent className="p-5">
-              <div className="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-4">
-                <Target className="w-5 h-5 text-indigo-500" />
+              <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center mb-4">
+                <Target className="w-5 h-5 text-secondary" />
               </div>
-              <h3 className="font-bold text-primary-foreground mb-2">Advanced Product Experimentation</h3>
+              <h3 className="font-bold text-foreground mb-2">Advanced Product Experimentation</h3>
               <p className="text-xs text-muted-foreground mb-4">Deep dive into A/B testing and statistical significance.</p>
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs border-indigo-500/30 text-indigo-400">Medium Priority</Badge>
+                <Badge variant="outline" className="text-xs border-secondary/30 text-secondary">Medium Priority</Badge>
                 <span className="text-xs text-muted-foreground">2 weeks</span>
               </div>
             </CardContent>
@@ -129,13 +129,13 @@ export default function SkillAnalyticsPage() {
 
           <Card className="bg-card/50 border-border/50 hover:border-primary/30 transition-all cursor-pointer">
             <CardContent className="p-5">
-              <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
-                <TrendingUp className="w-5 h-5 text-purple-500" />
+              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4">
+                <TrendingUp className="w-5 h-5 text-foreground" />
               </div>
-              <h3 className="font-bold text-primary-foreground mb-2">SQL for Data Science</h3>
+              <h3 className="font-bold text-foreground mb-2">SQL for Data Science</h3>
               <p className="text-xs text-muted-foreground mb-4">Learn advanced queries for autonomous data extraction.</p>
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="text-xs border-purple-500/30 text-purple-400">Recommended</Badge>
+                <Badge variant="outline" className="text-xs border-border text-foreground">Recommended</Badge>
                 <span className="text-xs text-muted-foreground">3 weeks</span>
               </div>
             </CardContent>

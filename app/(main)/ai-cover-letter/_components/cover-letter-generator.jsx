@@ -78,7 +78,7 @@ export default function CoverLetterGenerator() {
                   {...register("companyName")}
                 />
                 {errors.companyName && (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm text-destructive">
                     {errors.companyName.message}
                   </p>
                 )}
@@ -92,7 +92,7 @@ export default function CoverLetterGenerator() {
                   {...register("jobTitle")}
                 />
                 {errors.jobTitle && (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm text-destructive">
                     {errors.jobTitle.message}
                   </p>
                 )}
@@ -108,7 +108,7 @@ export default function CoverLetterGenerator() {
                 {...register("jobDescription")}
               />
               {errors.jobDescription && (
-                <p className="text-sm text-red-500">
+                <p className="text-sm text-destructive">
                   {errors.jobDescription.message}
                 </p>
               )}

@@ -6,8 +6,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { revalidatePath } from "next/cache";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
 export async function saveResume(content) {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
@@ -95,4 +94,34 @@ export async function improveWithAI({ current, type }) {
     console.error("Error improving content:", error);
     throw new Error("Failed to improve content");
   }
+}
+
+export async function getATSScore(content) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const prompt = `
+    You are an ATS (Applicant Tracking System) expert. Analyze the following resume content and return a JSON object.
+
+    Resume Content:
+    "${content}"
+
+    Return ONLY a valid JSON object with no extra text, no markdown, no backticks. Exactly this structure:
+    {
+      "score": <number between 0 and 100>,
+      "label": <"Poor" | "Fair" | "Good" | "Excellent">,
+      "suggestions": [<list of 3 to 5 specific improvement tips as strings>]
+    }
+  `;
+
+  try {
+    const result = await model.generateContent(prompt);
+    const text = result.response.text().trim();
+    const cleaned = text.replace(/```json|```/g, "").trim();
+    const parsed = JSON.parse(cleaned);
+    return parsed;
+  }  catch (error) {
+  console.error("Error getting ATS score:", error);
+  throw new Error("Failed to get ATS score");
+}
 }

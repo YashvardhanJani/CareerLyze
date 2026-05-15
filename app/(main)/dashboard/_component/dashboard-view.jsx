@@ -46,7 +46,7 @@ const DashboardView = ({ insights }) => {
     >
       {/* Header */}
       <div className="space-y-2 mt-4">
-        <h1 className="text-4xl font-bold tracking-tight text-primary-foreground font-serif">Welcome back, User</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-foreground font-serif">Welcome back, User</h1>
         <p className="text-muted-foreground text-sm max-w-2xl">
           Your AI career co-pilot has analyzed 12 new job opportunities matching your senior product design profile. Let&apos;s get you hired.
         </p>
@@ -61,11 +61,11 @@ const DashboardView = ({ insights }) => {
                 <div className="p-3 bg-secondary/80 rounded-xl">
                   <Send className="w-5 h-5 text-primary" />
                 </div>
-                <span className="text-xs font-semibold text-yellow-500">+12% vs last week</span>
+                <span className="text-xs font-semibold text-secondary">+12% vs last week</span>
               </div>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary-foreground">Application Progress</h3>
+                  <h3 className="text-2xl font-semibold text-foreground">Application Progress</h3>
                   <p className="text-sm text-muted-foreground mt-1">4 active, 2 interviews scheduled</p>
                 </div>
                 <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
@@ -78,7 +78,7 @@ const DashboardView = ({ insights }) => {
 
         <motion.div variants={itemVariants}>
           <Card className="bg-card/50 border-border/50 backdrop-blur-sm h-full hover:border-primary/30 transition-all relative overflow-hidden">
-            <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent" />
+            <div className="absolute right-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
             <CardContent className="p-6">
               <div className="flex justify-between items-start mb-6">
                 <div className="p-3 bg-secondary/80 rounded-xl">
@@ -91,7 +91,7 @@ const DashboardView = ({ insights }) => {
               </div>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary-foreground">Profile Strength</h3>
+                  <h3 className="text-2xl font-semibold text-foreground">Profile Strength</h3>
                   <p className="text-sm text-muted-foreground mt-1">Optimized for &quot;Lead Designer&quot; roles</p>
                 </div>
                 <Button variant="outline" className="w-full bg-transparent border-border/50 hover:bg-secondary/50 transition-colors">
@@ -107,7 +107,7 @@ const DashboardView = ({ insights }) => {
             <CardContent className="p-6">
               <div className="flex justify-between items-start mb-6">
                 <div className="p-3 bg-secondary/80 rounded-xl">
-                  <Lightbulb className="w-5 h-5 text-yellow-500" />
+                  <Lightbulb className="w-5 h-5 text-secondary" />
                 </div>
                 <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground">
                   <MoreHorizontal className="w-4 h-4" />
@@ -115,7 +115,7 @@ const DashboardView = ({ insights }) => {
               </div>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary-foreground">Interview Readiness</h3>
+                  <h3 className="text-2xl font-semibold text-foreground">Interview Readiness</h3>
                   <p className="text-sm text-muted-foreground mt-1">Top 5% for technical scenarios</p>
                 </div>
                 <div className="flex gap-2">
@@ -134,7 +134,7 @@ const DashboardView = ({ insights }) => {
         {/* Left Column - AI Insights & Activity */}
         <div className="lg:col-span-2 space-y-4">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-xl font-semibold text-primary-foreground font-serif">AI Insights & Activity</h3>
+            <h3 className="text-xl font-semibold text-foreground font-serif">AI Insights & Activity</h3>
             <Button variant="link" className="text-primary text-sm p-0 h-auto font-medium">
               View all <ArrowRight className="w-3 h-3 ml-1" />
             </Button>
@@ -148,17 +148,17 @@ const DashboardView = ({ insights }) => {
               <Card className="bg-card/50 border-border/50 hover:bg-card/80 transition-colors">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
-                    <span className="font-medium text-primary-foreground">2 hours ago</span>
+                    <span className="font-medium text-foreground">2 hours ago</span>
                     <span>•</span>
                     <span>Resume Optimization</span>
                   </div>
-                  <p className="text-sm text-primary-foreground leading-relaxed">
-                    AI refined your &quot;Experience&quot; section for the <span className="text-yellow-500 font-medium">Senior Designer</span> role at Google.
+                  <p className="text-sm text-foreground leading-relaxed">
+                    AI refined your &quot;Experience&quot; section for the <span className="text-primary font-medium">Senior Designer</span> role at Google.
                     Quantified impact metrics improved by 40%.
                   </p>
                   <div className="flex gap-4 mt-3">
                     <button className="text-xs text-primary font-medium hover:underline">Compare Versions</button>
-                    <button className="text-xs text-muted-foreground font-medium hover:text-primary-foreground">Dismiss</button>
+                    <button className="text-xs text-muted-foreground font-medium hover:text-foreground">Dismiss</button>
                   </div>
                 </CardContent>
               </Card>
@@ -170,11 +170,11 @@ const DashboardView = ({ insights }) => {
               <Card className="bg-card/50 border-border/50 hover:bg-card/80 transition-colors">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
-                    <span className="font-medium text-primary-foreground">Yesterday</span>
+                    <span className="font-medium text-foreground">Yesterday</span>
                     <span>•</span>
                     <span>Interview Training</span>
                   </div>
-                  <p className="text-sm text-primary-foreground leading-relaxed">
+                  <p className="text-sm text-foreground leading-relaxed">
                     Successfully completed a mock behavioral interview. You scored <span className="font-medium">8.5/10</span> on conflict resolution answers.
                   </p>
                 </CardContent>
@@ -183,15 +183,15 @@ const DashboardView = ({ insights }) => {
 
             {/* Timeline Item 3 */}
             <motion.div variants={itemVariants} className="relative">
-              <div className="absolute -left-6 top-5 w-2 h-2 rounded-full bg-yellow-500 ring-4 ring-background shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
+              <div className="absolute -left-6 top-5 w-2 h-2 rounded-full bg-secondary ring-4 ring-background" />
               <Card className="bg-card/50 border-border/50 hover:bg-card/80 transition-colors">
                 <CardContent className="p-5">
-                  <div className="flex items-center gap-3 text-xs text-yellow-500 mb-2">
+                  <div className="flex items-center gap-3 text-xs text-secondary mb-2">
                     <span className="font-medium">3 days ago</span>
                     <span className="text-muted-foreground">•</span>
                     <span className="text-muted-foreground">New Match</span>
                   </div>
-                  <p className="text-sm text-primary-foreground leading-relaxed">
+                  <p className="text-sm text-foreground leading-relaxed">
                     New high-relevance job detected: <span className="text-primary font-medium">Staff Product Designer</span> at Anthropic. AI suggests applying before Friday.
                   </p>
                 </CardContent>
@@ -211,11 +211,11 @@ const DashboardView = ({ insights }) => {
                 <Zap className="w-24 h-24 text-primary" />
               </div>
               <CardContent className="p-6 relative z-10">
-                <h3 className="text-lg font-semibold text-primary-foreground mb-2 font-serif">AI Catalyst</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2 font-serif">AI Catalyst</h3>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   Generate a custom cover letter based on your latest resume and the target company&apos;s culture.
                 </p>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-foreground font-semibold shadow-[0_0_20px_rgba(168,85,247,0.3)]">
                   <Zap className="w-4 h-4 mr-2" /> Generate Now
                 </Button>
               </CardContent>
@@ -233,20 +233,20 @@ const DashboardView = ({ insights }) => {
                   <div className="p-4 flex items-center gap-4 hover:bg-secondary/20 transition-colors cursor-pointer">
                     <div className="bg-secondary/80 rounded-lg p-2 text-center min-w-[50px]">
                       <div className="text-[10px] text-muted-foreground uppercase font-bold">Oct</div>
-                      <div className="text-lg font-bold text-primary-foreground">12</div>
+                      <div className="text-lg font-bold text-foreground">12</div>
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-primary-foreground">Product Design Loop</h4>
+                      <h4 className="text-sm font-semibold text-foreground">Product Design Loop</h4>
                       <p className="text-xs text-muted-foreground mt-0.5">Stripe • 2:00 PM</p>
                     </div>
                   </div>
                   <div className="p-4 flex items-center gap-4 hover:bg-secondary/20 transition-colors cursor-pointer">
                     <div className="bg-secondary/80 rounded-lg p-2 text-center min-w-[50px]">
                       <div className="text-[10px] text-muted-foreground uppercase font-bold">Oct</div>
-                      <div className="text-lg font-bold text-primary-foreground">14</div>
+                      <div className="text-lg font-bold text-foreground">14</div>
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-primary-foreground">Coffee Chat</h4>
+                      <h4 className="text-sm font-semibold text-foreground">Coffee Chat</h4>
                       <p className="text-xs text-muted-foreground mt-0.5">Meta • 11:30 AM</p>
                     </div>
                   </div>

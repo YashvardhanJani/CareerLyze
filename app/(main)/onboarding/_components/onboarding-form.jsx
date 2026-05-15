@@ -115,7 +115,7 @@ const OnboardingForm = ({ industries }) => {
                 </SelectContent>
               </Select>
               {errors.industry && (
-                <p className="text-sm text-red-500">
+                <p className="text-sm text-destructive">
                   {errors.industry.message}
                 </p>
               )}
@@ -142,7 +142,7 @@ const OnboardingForm = ({ industries }) => {
                   </SelectContent>
                 </Select>
                 {errors.subIndustry && (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm text-destructive">
                     {errors.subIndustry.message}
                   </p>
                 )}
@@ -160,7 +160,7 @@ const OnboardingForm = ({ industries }) => {
                 {...register("experience")}
               />
               {errors.experience && (
-                <p className="text-sm text-red-500">
+                <p className="text-sm text-destructive">
                   {errors.experience.message}
                 </p>
               )}
@@ -177,7 +177,7 @@ const OnboardingForm = ({ industries }) => {
                 Separate multiple skills with commas
               </p>
               {errors.skills && (
-                <p className="text-sm text-red-500">{errors.skills.message}</p>
+                <p className="text-sm text-destructive">{errors.skills.message}</p>
               )}
             </div>
 
@@ -190,7 +190,7 @@ const OnboardingForm = ({ industries }) => {
                 {...register("bio")}
               />
               {errors.bio && (
-                <p className="text-sm text-red-500">{errors.bio.message}</p>
+                <p className="text-sm text-destructive">{errors.bio.message}</p>
               )}
             </div>
 
