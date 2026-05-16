@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { useUser } from "@clerk/nextjs";
 import { 
   Send, 
   Settings2, 
@@ -16,6 +17,7 @@ import {
   Clock,
   Briefcase
 } from "lucide-react";
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -37,6 +39,7 @@ const itemVariants = {
 };
 
 const DashboardView = ({ insights }) => {
+  const { user } = useUser();
   return (
     <motion.div
       variants={containerVariants}
@@ -46,7 +49,7 @@ const DashboardView = ({ insights }) => {
     >
       {/* Header */}
       <div className="space-y-2 mt-4">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground font-serif">Welcome back, User</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-foreground font-serif">Welcome back, {user?.firstName || "User"}</h1>
         <p className="text-muted-foreground text-sm max-w-2xl">
           Your AI career co-pilot has analyzed 12 new job opportunities matching your senior product design profile. Let&apos;s get you hired.
         </p>
