@@ -22,6 +22,12 @@ model User {
   bio           String?
   experience    Int?      // Years of experience
   
+  // Settings/Preferences
+  themePreference String?  @default("system") // "light", "dark", "system"
+  emailNotifications Boolean @default(true)
+  pushNotifications Boolean @default(true)
+  aiGenerationEnabled Boolean @default(true)
+  
   // Relations
   skills        String[]  // Array of skills
   assessments   Assessment[]

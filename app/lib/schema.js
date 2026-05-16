@@ -15,7 +15,7 @@ export const onboardingSchema = z.object({
       z
         .number()
         .min(0, "Experience must be at least 0 years")
-        .max(50, "Experience cannot exceed 50 years")
+        .max(50, "Experience cannot exceed 50 years"),
     ),
   skills: z.string().transform((val) =>
     val
@@ -23,7 +23,7 @@ export const onboardingSchema = z.object({
           .split(",")
           .map((skill) => skill.trim())
           .filter(Boolean)
-      : undefined
+      : undefined,
   ),
 });
 
@@ -53,7 +53,7 @@ export const entrySchema = z
     {
       message: "End date is required unless this is your current position",
       path: ["endDate"],
-    }
+    },
   );
 
 export const resumeSchema = z.object({
@@ -69,4 +69,50 @@ export const coverLetterSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
   jobTitle: z.string().min(1, "Job title is required"),
   jobDescription: z.string().min(1, "Job description is required"),
+});
+
+export const profileSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .max(100, "Name must be less than 100 characters"),
+  email: z.string().email("Invalid email address"),
+  bio: z
+    .string()
+    .max(500, "Bio must be less than 500 characters")
+    .optional()
+    .or(z.literal("")),
+  experience: z
+    .string()
+    .optional()
+    .refine(
+      (val) => val === "" || !isNaN(parseInt(val, 10)),
+      "Experience must be a number",
+    )
+    .transform((val) => (val === "" ? undefined : parseInt(val, 10)))
+    .refine(
+      (val) => val === undefined || (val >= 0 && val <= 50),
+      "Experience must be between 0 and 50 years",
+    ),
+  skills: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .transform((val) =>
+      val
+        ? val
+            .split(",")
+            .map((skill) => skill.trim())
+            .filter(Boolean)
+        : undefined,
+    ),
+});
+
+export const settingsSchema = z.object({
+  themePreference: z.enum(["light", "dark", "system"], {
+    errorMap: () => ({ message: "Please select a valid theme" }),
+  }),
+  emailNotifications: z.boolean(),
+  pushNotifications: z.boolean(),
+  aiGenerationEnabled: z.boolean(),
 });

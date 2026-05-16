@@ -56,7 +56,7 @@ export async function updateUser(data) {
       },
       {
         timeout: 10000, // default: 5000
-      }
+      },
     );
 
     revalidatePath("/");
@@ -93,5 +93,109 @@ export async function getUserOnboardingStatus() {
   } catch (error) {
     console.error("Error checking onboarding status:", error);
     throw new Error("Failed to check onboarding status");
+  }
+}
+
+export async function getProfileData() {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  try {
+    const user = await db.user.findUnique({
+      where: { clerkUserId: userId },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        imageUrl: true,
+        bio: true,
+        experience: true,
+        skills: true,
+        themePreference: true,
+        emailNotifications: true,
+        pushNotifications: true,
+        aiGenerationEnabled: true,
+      },
+    });
+
+    if (!user) throw new Error("User not found");
+
+    return user;
+  } catch (error) {
+    console.error("Error fetching profile:", error);
+    throw new Error("Failed to fetch profile");
+  }
+}
+
+export async function updateProfile(data) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
+
+  if (!user) throw new Error("User not found");
+
+  try {
+    const updatedUser = await db.user.update({
+      where: { id: user.id },
+      data: {
+        name: data.name,
+        bio: data.bio,
+        experience: data.experience,
+        skills: data.skills,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        bio: true,
+        experience: true,
+        skills: true,
+      },
+    });
+
+    revalidatePath("/settings");
+    revalidatePath("/dashboard");
+    return updatedUser;
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    throw new Error("Failed to update profile");
+  }
+}
+
+export async function updateSettings(data) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
+
+  if (!user) throw new Error("User not found");
+
+  try {
+    const updatedUser = await db.user.update({
+      where: { id: user.id },
+      data: {
+        themePreference: data.themePreference,
+        emailNotifications: data.emailNotifications,
+        pushNotifications: data.pushNotifications,
+        aiGenerationEnabled: data.aiGenerationEnabled,
+      },
+      select: {
+        themePreference: true,
+        emailNotifications: true,
+        pushNotifications: true,
+        aiGenerationEnabled: true,
+      },
+    });
+
+    revalidatePath("/settings");
+    return updatedUser;
+  } catch (error) {
+    console.error("Error updating settings:", error);
+    throw new Error("Failed to update settings");
   }
 }

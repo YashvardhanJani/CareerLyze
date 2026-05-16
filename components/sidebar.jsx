@@ -11,6 +11,7 @@ import {
   GraduationCap,
   ChevronLeft,
   ChevronRight,
+  Settings,
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -38,7 +39,7 @@ const sidebarItems = [
   {
     name: "Settings",
     href: "/settings",
-    icon: PenBox,
+    icon: Settings,
   },
 ];
 
@@ -66,7 +67,8 @@ export default function Sidebar() {
 
       <nav className="flex-1 px-4 py-6 space-y-3">
         {sidebarItems.map((item) => {
-          const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+          const isActive =
+            pathname === item.href || pathname.startsWith(`${item.href}/`);
           return (
             <Link key={item.name} href={item.href}>
               <motion.div
@@ -83,7 +85,10 @@ export default function Sidebar() {
                 )}
                 <item.icon className="h-5 w-5 flex-shrink-0" />
                 <motion.span
-                  animate={{ opacity: isCollapsed ? 0 : 1, width: isCollapsed ? 0 : "auto" }}
+                  animate={{
+                    opacity: isCollapsed ? 0 : 1,
+                    width: isCollapsed ? 0 : "auto",
+                  }}
                   transition={{ duration: 0.2 }}
                   className="ml-4 font-semibold whitespace-nowrap overflow-hidden"
                 >
@@ -99,7 +104,9 @@ export default function Sidebar() {
       {!isCollapsed && (
         <div className="p-6 mb-4">
           <div className="bg-secondary/30 rounded-xl p-4 border border-border/50">
-            <h4 className="text-sm font-medium text-muted-foreground mb-2">Storage Used</h4>
+            <h4 className="text-sm font-medium text-muted-foreground mb-2">
+              Storage Used
+            </h4>
             <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
               <div className="h-full bg-primary w-[45%]" />
             </div>
