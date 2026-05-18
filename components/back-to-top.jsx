@@ -27,21 +27,21 @@ export default function BackToTop({
         className={[
           "fixed bottom-6 right-6 z-50",
           "h-11 w-11 rounded-full",
-          "bg-slate-800 text-white",
-          "border border-slate-600",
-          "shadow-lg shadow-slate-900/40",
-          "hover:bg-slate-700 hover:border-slate-500",
-          "hover:shadow-xl hover:shadow-slate-900/50",
+          "bg-secondary text-secondary-foreground",
+          "border border-border",
+          "shadow-lg shadow-primary/20",
+          "hover:bg-secondary/80 hover:border-border/80",
+          "hover:shadow-xl hover:shadow-primary/30",
           "focus:outline-none focus-visible:ring-2",
-          "focus-visible:ring-blue-400 focus-visible:ring-offset-2",
-          "focus-visible:ring-offset-slate-900",
+          "focus-visible:ring-primary focus-visible:ring-offset-2",
+          "focus-visible:ring-offset-background",
           "active:scale-95",
           "flex items-center justify-center",
           "transition-all duration-300 ease-in-out",
           visible
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "translate-y-4 opacity-0 pointer-events-none",
-        ].join(" ")}
+        ].join(" ")
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
