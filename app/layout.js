@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
+import BackToTop from "@/components/back-to-top";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
               </div>
             </footer>
           </ThemeProvider>
+          <BackToTop />
         </body>
       </html>
     </ClerkProvider>
