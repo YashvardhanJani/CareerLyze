@@ -240,12 +240,11 @@ export default function CareerRoadmapPage() {
           <div className="mt-20">
             <div className="text-center mb-14">
               <h2 className="text-4xl font-bold">
-                {roadmap.career} Learning Path
+                {roadmap?.career || "Career"} Learning Path
               </h2>
 
               <p className="text-secondary mt-3">
-                Follow this AI-generated roadmap
-                step by step
+                Follow this AI-generated roadmap step by step
               </p>
             </div>
 
@@ -255,19 +254,16 @@ export default function CareerRoadmapPage() {
                   key={index}
                   className="relative bg-card border border-border rounded-3xl p-8 shadow-xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden"
                 >
-                  {/* LEFT BORDER */}
                   <div className="absolute left-0 top-0 h-full w-2 bg-primary rounded-l-3xl"></div>
 
-                  {/* STEP HEADER */}
                   <div className="flex items-center gap-5 mb-8">
-                    {/* STEP NUMBER */}
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-xl">
                       {index + 1}
                     </div>
 
                     <div>
                       <h3 className="text-2xl font-bold text-primary">
-                        {phase.title}
+                        {phase?.title || "Phase"}
                       </h3>
 
                       <p className="text-secondary text-sm mt-1">
@@ -276,7 +272,6 @@ export default function CareerRoadmapPage() {
                     </div>
                   </div>
 
-                  {/* GRID CONTENT */}
                   <div className="grid md:grid-cols-2 gap-8">
                     {/* SKILLS */}
                     <div>
@@ -285,16 +280,14 @@ export default function CareerRoadmapPage() {
                       </h4>
 
                       <div className="flex flex-wrap gap-3">
-                        {phase.skills.map(
-                          (skill, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20"
-                            >
-                              {skill}
-                            </span>
-                          )
-                        )}
+                        {(phase?.skills || []).map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20"
+                          >
+                            {skill}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
@@ -305,28 +298,24 @@ export default function CareerRoadmapPage() {
                       </h4>
 
                       <div className="flex flex-wrap gap-3">
-                        {phase.tools.map(
-                          (tool, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium border border-secondary/20"
-                            >
-                              {tool}
-                            </span>
-                          )
-                        )}
+                        {(phase?.tools || []).map((tool, idx) => (
+                          <span
+                            key={idx}
+                            className="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium border border-secondary/20"
+                          >
+                            {tool}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
 
                   {/* MILESTONE */}
                   <div className="mt-8 bg-primary/5 border border-primary/10 rounded-2xl p-5">
-                    <h4 className="font-semibold mb-2">
-                      Milestone
-                    </h4>
+                    <h4 className="font-semibold mb-2">Milestone</h4>
 
                     <p className="text-secondary leading-relaxed">
-                      {phase.milestone}
+                      {phase?.milestone || "Complete this phase"}
                     </p>
                   </div>
                 </div>
