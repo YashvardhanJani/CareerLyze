@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useEffect } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -44,7 +44,7 @@ const resumeSchema = z.object({
     z.object({
       title: z.string().min(2, "Title is required"),
       description: z.string().min(5, "Description is required"),
-      url: z.string().optional().or(z.literal('')),
+      url: z.string().optional().or(z.literal("")),
     })
   ),
   education: z.array(
@@ -96,7 +96,7 @@ export default function ResumeForm({ initialData, onUpdate, isExpanded = false }
     name: "education",
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const subscription = form.watch((value) => {
       onUpdate(value);
     });
