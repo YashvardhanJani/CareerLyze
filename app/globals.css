@@ -8,19 +8,20 @@ body {
 
 @layer base {
   :root {
+    /* Light Mode Palette */
     --background: 0 0% 100%;
-    --foreground: 0 0% 4%;
+    --foreground: 0 0% 12%;
     --card: 0 0% 96%;
-    --card-foreground: 0 0% 4%;
+    --card-foreground: 0 0% 12%;
     --popover: 0 0% 96%;
-    --popover-foreground: 0 0% 4%;
+    --popover-foreground: 0 0% 12%;
     --primary: 262 83% 58%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 262 83% 66%;
+    --secondary: 262 80% 65%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 90%;
-    --muted-foreground: 215 14% 34%;
-    --accent: 262 83% 66%;
+    --muted-foreground: 217 13% 43%;
+    --accent: 262 80% 65%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -28,27 +29,28 @@ body {
     --input: 0 0% 90%;
     --ring: 262 83% 58%;
     --chart-1: 262 83% 58%;
-    --chart-2: 262 83% 66%;
-    --chart-3: 215 14% 34%;
-    --chart-4: 0 0% 4%;
+    --chart-2: 262 80% 65%;
+    --chart-3: 217 13% 43%;
+    --chart-4: 0 0% 12%;
     --chart-5: 0 0% 90%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 4%;
+    /* Dark Mode Palette */
+    --background: 0 0% 3.9%;
     --foreground: 0 0% 100%;
-    --card: 0 0% 7%;
+    --card: 0 0% 6.7%;
     --card-foreground: 0 0% 100%;
-    --popover: 0 0% 7%;
+    --popover: 0 0% 6.7%;
     --popover-foreground: 0 0% 100%;
     --primary: 262 83% 58%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 262 83% 66%;
+    --secondary: 262 80% 65%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 15%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 262 83% 66%;
+    --muted-foreground: 240 5% 63%;
+    --accent: 262 80% 65%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -56,8 +58,8 @@ body {
     --input: 0 0% 15%;
     --ring: 262 83% 58%;
     --chart-1: 262 83% 58%;
-    --chart-2: 262 83% 66%;
-    --chart-3: 240 5% 65%;
+    --chart-2: 262 80% 65%;
+    --chart-3: 240 5% 63%;
     --chart-4: 0 0% 100%;
     --chart-5: 0 0% 15%;
   }
@@ -133,12 +135,92 @@ body {
     color: hsl(var(--foreground) / 0.6);
   }
 
-  /* Responsive overflow prevention */
+  /* ✨ Typography Scale Utilities */
+  .typography-xs {
+    @apply text-xs font-normal;
+  }
+
+  .typography-sm {
+    @apply text-sm font-normal;
+  }
+
+  .typography-base {
+    @apply text-base font-normal;
+  }
+
+  .typography-lg {
+    @apply text-lg font-normal;
+  }
+
+  .typography-xl {
+    @apply text-xl font-semibold;
+  }
+
+  .typography-2xl {
+    @apply text-2xl font-semibold;
+  }
+
+  .typography-3xl {
+    @apply text-3xl font-bold;
+  }
+
+  .typography-4xl {
+    @apply text-4xl font-bold;
+  }
+
+  .typography-5xl {
+    @apply text-5xl font-bold;
+  }
+
+  /* ✨ Semantic Color Utilities */
+  .text-secondary-text {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .bg-primary-light {
+    @apply bg-primary/10;
+  }
+
+  .bg-secondary-light {
+    @apply bg-secondary/10;
+  }
+
+  .border-primary-subtle {
+    @apply border border-primary/20;
+  }
+
+  /* ✨ Interactive Element States */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background;
+  }
+
+  .hover-primary {
+    @apply hover:bg-primary hover:text-primary-foreground transition-colors duration-200;
+  }
+
+  /* ✨ Card Elevation System */
+  .card-sm {
+    @apply rounded-lg border border-border bg-card shadow-sm;
+  }
+
+  .card-md {
+    @apply rounded-lg border border-border bg-card shadow-md;
+  }
+
+  .card-lg {
+    @apply rounded-xl border border-border bg-card shadow-lg;
+  }
+
+  .card-xl {
+    @apply rounded-xl border border-border bg-card shadow-xl;
+  }
+
+  /* ✨ Responsive overflow prevention */
   .overflow-x-hidden {
     overflow-x: hidden;
   }
 
-  /* Responsive padding utilities */
+  /* ✨ Responsive padding utilities */
   @media (max-width: 640px) {
     .px-2 {
       padding-left: 0.5rem;
@@ -151,7 +233,7 @@ body {
     }
   }
 
-  /* Ensure resume preview container doesn't overflow on ultra-small screens */
+  /* ✨ Ensure resume preview container doesn't overflow on ultra-small screens */
   @media (max-width: 360px) {
     body {
       font-size: 14px;

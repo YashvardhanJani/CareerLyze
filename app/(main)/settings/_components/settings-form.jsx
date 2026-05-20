@@ -184,7 +184,7 @@ const SettingsForm = ({ user }) => {
               }`}
             >
               <span
-                className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                className={`inline-block h-6 w-6 transform rounded-full bg-foreground transition-transform ${
                   emailNotifications ? "translate-x-7" : "translate-x-1"
                 }`}
               />
@@ -208,7 +208,7 @@ const SettingsForm = ({ user }) => {
               }`}
             >
               <span
-                className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                className={`inline-block h-6 w-6 transform rounded-full bg-foreground transition-transform ${
                   pushNotifications ? "translate-x-7" : "translate-x-1"
                 }`}
               />
@@ -247,7 +247,7 @@ const SettingsForm = ({ user }) => {
               }`}
             >
               <span
-                className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
+                className={`inline-block h-6 w-6 transform rounded-full bg-foreground transition-transform ${
                   aiGenerationEnabled ? "translate-x-7" : "translate-x-1"
                 }`}
               />

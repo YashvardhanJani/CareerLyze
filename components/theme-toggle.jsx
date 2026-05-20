@@ -18,25 +18,25 @@ const themes = [
     value: "light",
     label: "Light",
     icon: Sun,
-    activeColor: "text-yellow-500",
-    hoverBg: "hover:bg-yellow-500/10",
-    activeBg: "bg-yellow-500/15",
+    activeColor: "text-primary",
+    hoverBg: "hover:bg-primary/10",
+    activeBg: "bg-primary/15",
   },
   {
     value: "dark",
     label: "Dark",
     icon: Moon,
-    activeColor: "text-blue-400",
-    hoverBg: "hover:bg-blue-500/10",
-    activeBg: "bg-blue-500/15",
+    activeColor: "text-secondary",
+    hoverBg: "hover:bg-secondary/10",
+    activeBg: "bg-secondary/15",
   },
   {
     value: "system",
     label: "System",
     icon: Monitor,
-    activeColor: "text-emerald-400",
-    hoverBg: "hover:bg-emerald-500/10",
-    activeBg: "bg-emerald-500/15",
+    activeColor: "text-muted-foreground",
+    hoverBg: "hover:bg-muted/10",
+    activeBg: "bg-muted/15",
   },
 ];
 
@@ -77,7 +77,7 @@ export function ThemeToggle() {
             transition-all duration-300 ease-out
             hover:scale-105 hover:border-border/80
             hover:shadow-lg
-            ${isDark ? "hover:shadow-blue-500/20 hover:bg-blue-500/5" : "hover:shadow-yellow-500/20 hover:bg-yellow-500/5"}
+            ${isDark ? "hover:shadow-secondary/20 hover:bg-secondary/5" : "hover:shadow-primary/20 hover:bg-primary/5"}
             ${isOpen ? "scale-105 border-border/80 bg-secondary/50 shadow-lg" : ""}
           `}
         >
@@ -85,7 +85,7 @@ export function ThemeToggle() {
           <Sun
             className={`
               absolute h-[1.15rem] w-[1.15rem]
-              text-yellow-500
+              text-primary
               transition-all duration-500 ease-out
               ${isDark ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"}
             `}
@@ -95,7 +95,7 @@ export function ThemeToggle() {
           <Moon
             className={`
               absolute h-[1.15rem] w-[1.15rem]
-              text-blue-400
+              text-secondary
               transition-all duration-500 ease-out
               ${isDark ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-0 opacity-0"}
             `}

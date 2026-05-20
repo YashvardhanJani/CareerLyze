@@ -140,35 +140,13 @@ export default function ResumeBuilder({ initialContent }) {
           <div className="flex-1 flex justify-center overflow-x-hidden">
             <div className="w-full max-w-[800px] bg-card rounded-md shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.05)] border-x border-b border-border border-t-[6px] border-t-primary p-4 sm:p-6 lg:p-10 text-foreground min-h-[1056px] relative transition-all duration-300">
 
-              {/* Header */}
-              <div className="flex flex-col sm:flex-row justify-between items-start border-b border-border pb-4 sm:pb-6 mb-4 sm:mb-6 gap-4 sm:gap-0">
-                <div className="flex items-center min-w-0">
-                  {resumeData.showProfilePic && (
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-secondary border border-border overflow-hidden mr-4 flex-shrink-0 flex items-end justify-center">
-                      <svg className="w-14 h-14 text-muted-foreground/50 mb-[-10px]" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                      </svg>
-                    </div>
-                  )}
-                  <div className="min-w-0">
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-foreground tracking-tight font-bold mb-1 break-words">{resumeData.fullName || 'YOUR NAME'}</h1>
-                    <p className="text-muted-foreground text-xs sm:text-sm font-medium tracking-wide whitespace-normal uppercase">{resumeData.jobTitle || 'JOB TITLE'}</p>
-                  </div>
-                </div>
-                <div className="text-left sm:text-right text-[10px] sm:text-xs text-muted-foreground space-y-0.5 sm:space-y-1 flex-shrink-0">
-                  {resumeData.email && <p>{resumeData.email}</p>}
-                  {resumeData.phone && <p>+91 {resumeData.phone}</p>}
-                  {resumeData.location && <p>{resumeData.location}</p>}
-                  {resumeData.links && resumeData.links.map((link, idx) => (
-                    link.label && link.url ? (
-                      <p key={idx}>
-                        <a href={link.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                          {link.label}
-                        </a>
-                      </p>
-                    ) : null
-                  ))}
-                </div>
+            {/* Professional Summary */}
+            <div className="mb-4 sm:mb-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-2">
+                <h2 className="text-xs sm:text-sm font-bold tracking-widest text-foreground uppercase">Professional Summary</h2>
+                <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-primary/20 text-[8px] sm:text-[10px] py-0 h-5 flex-shrink-0">
+                  <Sparkles className="w-2.5 sm:w-3 h-2.5 sm:h-3 mr-0.5 sm:mr-1" /> ai-optimized for faang
+                </Badge>
               </div>
 
 
